@@ -399,16 +399,16 @@ function DialSpectrum({
                     {/* 4. Target Wedges (The "Shutter" Reveal) */}
                     {showTarget && (
                         <g className="animate-reveal-shutter filter drop-shadow-lg">
-                            {/* 2pts (Left/Right) - Yellow */}
-                            {createWedge(targetValue - 10, 4, "#fbbf24")}
-                            {createWedge(targetValue + 10, 4, "#fbbf24")}
+                            {/* 2pts (Left/Right) - Yellow (8-12 units) */}
+                            {createWedge(targetValue - 10, 2, "#fbbf24")}
+                            {createWedge(targetValue + 10, 2, "#fbbf24")}
 
-                            {/* 3pts - Purple */}
-                            {createWedge(targetValue - 6, 4, "#c084fc")}
-                            {createWedge(targetValue + 6, 4, "#c084fc")}
+                            {/* 3pts - Purple (4-8 units) */}
+                            {createWedge(targetValue - 6, 2, "#c084fc")}
+                            {createWedge(targetValue + 6, 2, "#c084fc")}
 
-                            {/* 4pts - Cyan/Blue */}
-                            {createWedge(targetValue, 2, "#22d3ee")}
+                            {/* 4pts - Cyan/Blue (0-4 units) */}
+                            {createWedge(targetValue, 4, "#22d3ee")}
                         </g>
                     )}
 
@@ -938,7 +938,7 @@ function WavelengthGame() {
         <div className="flex flex-col items-center w-full px-6 pt-8 text-center animate-fade-in">
             <h2 className={`text-3xl font-black uppercase tracking-tight mb-8 ${currentTheme.text}`}>Advanced Settings</h2>
 
-            <div className={`w-full max-w-sm space-y-4 ${currentTheme.text}`}>
+            <div className={`w-full max-w-sm space-y-8 ${currentTheme.text}`}>
                 {/* Theme Toggle */}
                 <div className={`flex items-center justify-between p-4 rounded-2xl ${currentTheme.passWarningBg.replace('95', '10')} border ${currentTheme.border}`}>
                     <div className="text-left">
@@ -1012,7 +1012,7 @@ function WavelengthGame() {
                 <h2 className={`text-3xl font-black uppercase tracking-tight mb-2 ${currentTheme.text}`}>Players</h2>
                 <p className={`text-sm mb-6 ${currentTheme.subtext}`}>Add everyone who&apos;s playing</p>
 
-                <div className="w-full max-w-sm space-y-3">
+                <div className="w-full max-w-sm space-y-6">
                     {players.map((player, idx) => (
                         <div key={player.id} className={`flex items-center gap-2 p-3 rounded-xl border ${currentTheme.border} ${currentTheme.panel}`}>
                             <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm text-white ${playerColors[idx % playerColors.length]}`}>
@@ -1077,7 +1077,7 @@ function WavelengthGame() {
                     history={promptHistory}
                 />
             ) : (
-                <div className="w-full max-w-sm flex flex-col gap-5">
+                <div className="w-full max-w-sm flex flex-col gap-8">
                     {/* Players Setup - Always visible */}
                     <div className={`backdrop-blur-md px-6 py-4 rounded-3xl w-full transition-all hover:bg-white/5 border ${currentTheme.id === 'light' ? 'bg-slate-200/50 border-slate-300' : 'bg-black/30 border-white/5'}`}>
                         <div className="flex items-center justify-between">
@@ -1151,7 +1151,7 @@ function WavelengthGame() {
                     {/* Chaos Mode Toggle */}
                     <div className="bg-black/30 backdrop-blur-md px-6 py-4 rounded-3xl w-full flex items-center justify-between transition-all hover:bg-white/5 border border-white/5">
                         <div className="flex items-center gap-3 text-left">
-                            <div className={`p-2 rounded-full ${chaosMode ? 'bg-purple-500/20 text-purple-400' : 'bg-gray-800. text-gray-500'}`}>
+                            <div className={`p-2 rounded-full ${chaosMode ? 'bg-purple-500/20 text-purple-400' : 'bg-gray-800 text-gray-500'}`}>
                                 <Zap size={20} className={chaosMode ? 'drop-shadow-[0_0_10px_rgba(192,132,252,0.8)]' : ''} />
                             </div>
                             <div>
@@ -1167,7 +1167,7 @@ function WavelengthGame() {
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="w-full space-y-5 pt-6 mt-2">
+                    <div className="w-full space-y-6 pt-8 mt-2">
                         <button
                             onClick={() => startNewRound()}
                             className="bg-cyan-400 text-black hover:bg-cyan-300 w-full py-5 rounded-full text-lg font-black tracking-wide shadow-lg hover:shadow-cyan-400/20 transition-all transform active:scale-[0.98]"
